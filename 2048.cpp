@@ -7,14 +7,14 @@ using namespace std;
 
 const short size_i = 4, size_j = 4;
 short arr2048[size_i][size_j] = {8,16,128,32,
-								 2,8,32,16,
-								 4,0,4,0,
-								 4,0,0,0};
+				2,8,32,16,
+				4,0,4,0,
+				4,0,0,0};
 
 short arr2048_2[size_i][size_j] = {0,0,0,0,
-								   0,0,0,0,
-								   0,0,0,0,
-								   0,0,0,0};
+				   0,0,0,0,
+				   0,0,0,0,
+				   0,0,0,0};
 short arr_help[2] = {2,4};
 
 short temp = 0;
@@ -23,7 +23,7 @@ short max_ij = 0;
 int best_score = 0;
 int score = 0;
 
-void SetColor(short color)		//÷‚ÂÚ
+void SetColor(short color)		//–¶–≤–µ—Ç
 {
    HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
    SetConsoleTextAttribute(hStdOut, color);
@@ -40,20 +40,16 @@ void move_down(short arr2048[size_i][size_j]);
 void move_left(short arr2048[size_i][size_j]);
 void move_right(short arr2048[size_i][size_j]);
 
-int main()
-{
+int main() {
 	srand(time(0));
 	score = 0;
-	for (short i = 0; i < size_i; i++)
-	{
-		for (short j = 0; j < size_j; j++)
-		{
+	for (short i = 0; i < size_i; i++) {
+		for (short j = 0; j < size_j; j++) {
 			arr2048[i][j] = 0;
 		}
 	}
 	start_game(arr2048);
-	do
-	{
+	do {
 		for (short i = 0; i < size_i; i++)
 		{
 			for (short j = 0; j < size_j; j++)
@@ -78,8 +74,7 @@ int main()
 	} while (true);
 }
 
-void chech(short arr2048[size_i][size_j])
-{
+void chech(short arr2048[size_i][size_j]) {
 	short count = 0;
 	for (short i = 0; i < size_i; i++)
 	{
@@ -104,8 +99,7 @@ void chech(short arr2048[size_i][size_j])
 	return;
 }
 
-void chech_add_element(short arr2048[size_i][size_j])
-{
+void chech_add_element(short arr2048[size_i][size_j]) {
 	short count = 0;
 	for (short i = 0; i < size_i; i++)
 	{
@@ -126,8 +120,7 @@ void chech_add_element(short arr2048[size_i][size_j])
 	return;
 }
 
-void start_game(short arr2048[size_i][size_j])
-{
+void start_game(short arr2048[size_i][size_j]) {
 	short rand_row = 0, rand_col = 0, element = 0;
 	do
 	{
@@ -147,12 +140,11 @@ void start_game(short arr2048[size_i][size_j])
 	return;
 }
 
-void draw_game(short arr[size_i][size_j])
-{
+void draw_game(short arr[size_i][size_j]) {
 	system("cls");
 	cout << endl << endl << endl;
 	setlocale(LC_ALL, "Russian");
-	cout << "\tÀÛ˜¯ËÈ Ò˜∏Ú: " << best_score << "   —˜∏Ú: " << score;
+	cout << "\t√ã√≥√∑√∏√®√© √±√∑¬∏√≤: " << best_score << "   √ë√∑¬∏√≤: " << score;
 	setlocale(LC_ALL, "C");
 	cout << endl << endl;
 	for	(short i = 0; i < size_i; i++)
@@ -182,8 +174,7 @@ void draw_game(short arr[size_i][size_j])
 	return;
 }
 
-void move_game(short arr2048[size_i][size_j], short key)
-{
+void move_game(short arr2048[size_i][size_j], short key) {
 	if ((key == 72 || key == 119 /*w*/ || key == 87)) //up
 	{
 		move_up(arr2048);
@@ -282,8 +273,7 @@ void move_game(short arr2048[size_i][size_j], short key)
 	}
 }
 
-void move_up(short arr2048[size_i][size_j])
-{
+void move_up(short arr2048[size_i][size_j]) {
 	for (short i = 0; i < size_i; i++)
 	{
 	for (short k = 0; k < 3; k++)
@@ -347,8 +337,7 @@ void move_up(short arr2048[size_i][size_j])
 	return;
 }
 
-void move_down(short arr2048[size_i][size_j])
-{
+void move_down(short arr2048[size_i][size_j]) {
 	for (short i = size_i-1; i >= 0; i--)
 	{
 	for (short k = 0; k < 3; k++)
@@ -412,8 +401,7 @@ void move_down(short arr2048[size_i][size_j])
 	return;
 }
 
-void move_left(short arr2048[size_i][size_j])
-{
+void move_left(short arr2048[size_i][size_j]) {
 	for (short i = 0; i < size_i; i++)
 	{
 	for (short k = 0; k < 3; k++)
@@ -477,8 +465,7 @@ void move_left(short arr2048[size_i][size_j])
 	return;
 }
 
-void move_right(short arr2048[size_i][size_j])
-{
+void move_right(short arr2048[size_i][size_j]) {
 	for (short i = size_i-1; i >= 0; i--)
 	{
 	for (short k = 0; k < 3; k++)
@@ -539,5 +526,5 @@ void move_right(short arr2048[size_i][size_j])
 		}
 	}
 	}
-	return;
+	return 0;
 }
